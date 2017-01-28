@@ -1377,6 +1377,9 @@ public class Contact extends Mergable<Contact> implements ActionListener, Docume
 			if (line.startsWith("X-MOZILLA-HTML:") && (known = true)) readMailFormat(line.substring(15));
 			if (line.startsWith(" \\n") && line.trim().equals("\\n")) known = true;
 			if (line.startsWith("CUSTOM") && (known = true)) readCustom(line.substring(6));
+		    //TODO 
+			if (line.startsWith("X-EPOCSECONDNAME") && (known = true)) // X-EPOCSECONDNAME fields of Nokia phones;
+			
 			if (!known) {
 				throw new UnknownObjectException(_("unknown entry/instruction found in vcard #: '#'", new Object[] { vcfName, line }));
 			}
